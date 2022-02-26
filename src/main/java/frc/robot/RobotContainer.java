@@ -11,7 +11,6 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.TalonFXTestCommand;
 import frc.robot.commands.VictorTestCommand;
 import frc.robot.subsystems.DriveTrainSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.TalonFXTestSubsystem;
 import frc.robot.subsystems.VictorTestSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -28,14 +27,13 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   private final DriveTrainSubsystem driveTrainSubsystem = new DriveTrainSubsystem();
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final VictorTestSubsystem victorTestSubsystem = new VictorTestSubsystem();
   private final TalonFXTestSubsystem talonFXTestSubsystem = new TalonFXTestSubsystem();
 
   XboxController xboxController = new XboxController(Constants.CONTROLLER);
   Joystick flightStick = new Joystick(Constants.JOYSTICK);
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final ExampleCommand m_autoCommand = new ExampleCommand(talonFXTestSubsystem);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

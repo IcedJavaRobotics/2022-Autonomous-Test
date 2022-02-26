@@ -37,7 +37,7 @@ public class TalonFXTestCommand extends CommandBase {
   @Override
   public void end(boolean interrupted) {
 
-    //talonFXTestSubsystem.stopMotor();
+    talonFXTestSubsystem.stopMotor();
 
   }
 

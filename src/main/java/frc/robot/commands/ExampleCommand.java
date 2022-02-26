@@ -4,7 +4,7 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.TalonFXTestSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -12,7 +12,7 @@ public class ExampleCommand extends CommandBase {
 
   // @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
-  private final ExampleSubsystem exampleSubsystem;
+  private final TalonFXTestSubsystem talonFXTestSubsystem;
 
   /**
    * Creates a new ExampleCommand.
@@ -20,10 +20,10 @@ public class ExampleCommand extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
 
-  public ExampleCommand(ExampleSubsystem subsystem) {
+  public ExampleCommand(TalonFXTestSubsystem subsystem) {
 
-    exampleSubsystem = subsystem;
-    addRequirements(exampleSubsystem);
+    talonFXTestSubsystem = subsystem;
+    addRequirements(talonFXTestSubsystem);
 
   }
 
@@ -31,7 +31,7 @@ public class ExampleCommand extends CommandBase {
   @Override
   public void initialize() {
 
-    exampleSubsystem.zeroEncoder();
+    talonFXTestSubsystem.zeroEncoder();
 
   }
 
@@ -39,7 +39,7 @@ public class ExampleCommand extends CommandBase {
   @Override
   public void execute() {
 
-    exampleSubsystem.spinMotor();
+    talonFXTestSubsystem.autoSpin();
     
   }
 

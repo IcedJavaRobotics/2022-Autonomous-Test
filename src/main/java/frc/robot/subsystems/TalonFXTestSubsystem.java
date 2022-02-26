@@ -14,12 +14,28 @@ import frc.robot.Constants;
 public class TalonFXTestSubsystem extends SubsystemBase {
   /** Creates a new TalonFXTestSubsystem. */
   
-   final TalonFX testTalon;
+  final TalonFX testTalon;
 
-  public TalonFXTestSubsystem() {
+    public TalonFXTestSubsystem() {
     
     testTalon = new TalonFX(Constants.TESTTALONFX);
     
+  }
+
+  public void zeroEncoder() {
+
+    testTalon.setSelectedSensorPosition(0);
+    
+  }
+
+  public void autoSpin() {
+
+    if ( testTalon.getSelectedSensorPosition() <= Constants.ROTATIONAL_CONSTANT * Constants.AUTO_DISTANCE) {
+      spinMotor();
+    } else {
+      stopMotor();
+    }
+
   }
   
   public void spinMotor() {
