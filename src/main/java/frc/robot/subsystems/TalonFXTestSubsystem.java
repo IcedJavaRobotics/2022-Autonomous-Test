@@ -16,7 +16,7 @@ public class TalonFXTestSubsystem extends SubsystemBase {
   
   final TalonFX testTalon;
 
-    public TalonFXTestSubsystem() {
+  public TalonFXTestSubsystem() {
     
     testTalon = new TalonFX(Constants.TESTTALONFX);
     
@@ -29,25 +29,26 @@ public class TalonFXTestSubsystem extends SubsystemBase {
   }
 
   public void autoSpin() {
-
-    if ( testTalon.getSelectedSensorPosition() <= Constants.ROTATIONAL_CONSTANT * Constants.AUTO_DISTANCE) {
+    if ( testTalon.getSelectedSensorPosition() <= 3000)
+    {
       spinMotor();
     } else {
       stopMotor();
     }
-
   }
   
   public void spinMotor() {
 
+    
     testTalon.set(ControlMode.PercentOutput, 0.5);
 
     SmartDashboard.putNumber("Test Talon Velocity", testTalon.getSelectedSensorVelocity());
     SmartDashboard.putNumber("Test Talon Position", testTalon.getSelectedSensorPosition());
+    
 
   }
   
-  public void stopMotor() {
+  public void  stopMotor() {
     
     testTalon.set(ControlMode.PercentOutput, 0);
 
