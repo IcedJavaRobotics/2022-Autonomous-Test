@@ -25,8 +25,6 @@ public class ExampleCommand extends CommandBase {
     exampleSubsystem = subsystem;
     addRequirements(exampleSubsystem);
 
-    System.out.println("1");
-    
   }
 
   // Called when the command is initially scheduled.
@@ -34,8 +32,6 @@ public class ExampleCommand extends CommandBase {
   public void initialize() {
 
     exampleSubsystem.zeroEncoder();
-
-    System.out.println("2");
 
   }
 

@@ -15,21 +15,42 @@ public class ExampleSubsystem extends SubsystemBase {
 
   final TalonFX testTalon = new TalonFX(Constants.TESTTALONFX);
 
+  final TalonFX frontLeftTalon = new TalonFX(Constants.FRONT_LEFT_TALON);
+  final TalonFX backLeftTalon = new TalonFX(Constants.BACK_LEFT_TALON);
+  final TalonFX frontRightTalon = new TalonFX(Constants.FRONT_RIGHT_TALON);
+  final TalonFX backRightTalon = new TalonFX(Constants.BACK_RIGHT_TALON);
+
   public ExampleSubsystem() {
 
-    testTalon.setSelectedSensorPosition(0);
+    testTalon.setInverted(false);
+
+    frontLeftTalon.setInverted(true);
+    backLeftTalon.setInverted(false);
+    frontRightTalon.setInverted(true);
+    backRightTalon.setInverted(false);
 
   }
 
   public void spinMotor() {
       
-    testTalon.set(ControlMode.PercentOutput, 0.5);
+    if (testTalon.getSelectedSensorPosition() <= Constants.ROTATIONAL_CONSTANT * Constants.AUTO_DISTANCE) {
+
+      testTalon.set(ControlMode.PercentOutput, 0.5);
+      /*
+      frontLeftTalon.set(ControlMode.PercentOutput, 0.5);
+      backLeftTalon.set(ControlMode.PercentOutput, 0.5);
+      frontRightTalon.set(ControlMode.PercentOutput, 0.5);
+      backRightTalon.set(ControlMode.PercentOutput, 0.5);
+      */
+    }
     
   }
 
   public void zeroEncoder() {
 
     testTalon.setSelectedSensorPosition(0);
+
+    frontLeftTalon.setSelectedSensorPosition(0);
     
   }
 
